@@ -1,0 +1,54 @@
+@charset "UTF-8";
+#calArea{
+    text-align: center;
+
+}
+#calculator{
+    width: 400px;
+    height: 600px;
+    background-color: #FFF;
+    position: absolute;
+    top: 20%;
+    left: 40%;
+    background: hsla(0,0%,100%,.3);
+    border-radius:20px ;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+    z-index: 100;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+#display{
+    width: 400px;
+    height: 200px;
+    background-color: #CCC;
+    margin-bottom: 20px;
+
+}
+#word{
+    font-size: 25px;
+    шрифт: «Microsoft Yahei»;
+}
+#operator{
+    width: 100px;
+    height: 30px;
+}
+#buttom{
+    width: 80px;
+    height: 30px;
+}
+#editText{
+    width: 250px;
+    height: 30px;
+}
+h1{
+    text-align: center;
+}
+body{
+
+}
+p{
+    text-align:center;
+    font-size: 25px;
+    шрифт: «Microsoft Yahei»;
+    padding-top:90px;
+}

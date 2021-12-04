@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator.nonexe</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/calculatorDirectory}" th:object="${calculator}" >
+<label for="lastname">Enter first number: </label>
+<input type="text" th:field="*{firstNumber}" id="lastname"/>
+<br/>
+<label for="mail">Enter second number: </label>
+<input type="text" th:field="*{secondNumber}" id="mail"/>
+
+    <br/>
+    <input type="submit" value="solve"/>
+    <br/>
+
+  <!--  <h1 th:text="*{c.firstNumber}"></h1>-->
+
+
+
+    <p th:text="${res}"></p>
+    <input type="radio" value="Plus" >
+
+
+
+</form>
+<p th:text="${res}"></p>
+
+<input type="text" th:field="${calculator.getFirstNumber()+calculator.getSecondNumber()}">
+
+<h1 th:text="${calculator.getFirstNumber()+calculator.getSecondNumber()}"></h1>
+<h1 th:text="${calculator.getResult()}"></h1>
+<h1 th:text="${calculator.result}"></h1>
+<h1 th:text="${calculator.firstNumber}"></h1>
+<h1 th:text="${calculator.getFirstNumber()}"></h1>
+
+
+
+
+
+</body>
+</html>

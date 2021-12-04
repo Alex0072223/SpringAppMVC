@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div th:each="timeVariable: ${CalcMemory}">
+
+    <a th:href="@{/calculatorDirectory/{id}(id=${timeVariable.getIdn()})}" th:text="${timeVariable.getFirstNumber()+','+ timeVariable.getSecondNumber()+','+timeVariable.getResult()}">user</a>
+    <!--<a th:href="@{/databaseDirectory/{id}(id=${person.getUSERS_ID()})}" th:text="${person.getUSER_FIRSTNAME()+person.getUSER_LASTNAME()}"  >user</a>-->
+</div>
+<br/>
+
+</body>
+</html>
