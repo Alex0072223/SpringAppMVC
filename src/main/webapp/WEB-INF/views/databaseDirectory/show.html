@@ -4,19 +4,33 @@
     <meta charset="UTF-8">
     <title>Person from db</title>
 </head>
-<body>
+<body style="background-color: #423f3f">
 
-<p th:text="${person.getUSER_FIRSTNAME()}">VALUE</p>
-<p th:text="${person.getUSERS_ID()}">VALUE</p>
-<p th:text="${person.getUSER_LASTNAME()}">VALUE</p>
-<p th:text="${person.getUSER_MAIL()}">VALUE</p>
-<p th:text="${person.getUSER_LOCATION()}">VALUE</p>
+<p style="color:white;" th:text="${person.getMUSIC_ID()}">VALUE</p>
+<p style="color:white;"th:text="${person.getMUSIC_TRACKNAME()}">VALUE</p>
+<p style="color:white;" th:text="${person.getMUSIC_GENRE()}">VALUE</p>
+<p style="color:white;"th:text="${person.getMUSIC_DURATION()}">VALUE</p>
+<p style="color:white;"th:text="${person.getMUSIC_ARTIST()}">VALUE</p>
 
-<a th:href="@{/databaseDirectory/{id}/edit(id=${person.getUSERS_ID()})}">Edit</a>
+<a style="color:white;" th:href="@{/databaseDirectory/{id}/edit(id=${person.getMUSIC_ID()})}">Edit</a>
+<br/>
 
-<form th:method="DELETE" th:action="@{/databaseDirectory/{id}(id=${person.getUSERS_ID()})}">
-    <input type="submit" value="Delete"/>
+<form th:method="DELETE" th:action="@{/databaseDirectory/{id}(id=${person.getMUSIC_ID()})}">
+    <input  style="box-shadow:inset 0px 34px 0px -15px #1c1c1c;
+	background:linear-gradient(to bottom, #423f3f 5%, #080100 100%);
+	background-color:#423f3f;
+	border:1px solid #241d13;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:9px 23px;
+	text-decoration:none;
+	text-shadow:0px -1px 0px #7a2a1d; " type="submit" value="Delete"/>
 </form>
+<br/>
 
 </body>
 </html>

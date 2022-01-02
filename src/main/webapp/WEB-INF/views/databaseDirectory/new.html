@@ -3,36 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <title>New person</title>
+    <link rel="stylesheet" type="text/css" href="C:\Users\alex0\IdeaProjects\SpringAppMVC\src\main\webapp\WEB-INF\views\databaseDirectory\newperson.css">
 </head>
-<body>
+<body style="background-color: #423f3f">
 
 <form th:method="POST" th:action="@{/databaseDirectory}" th:object="${person}">
 
-    <label for="name">Enter name: </label>
-    <input type="text" th:field="*{USER_FIRSTNAME}" id="name"/>
+    <label  style="color: white" for="name">Enter name of Track: </label>
+    <input  style="border-radius: 9px; " type="text" th:field="*{MUSIC_TRACKNAME}" id="name"/>
+    <br/>
     <br/>
 
 
 
 
-    <label for="lastname">Enter lastname: </label>
-    <input type="text" th:field="*{USER_LASTNAME}" id="lastname"/>
 
+    <label style="color: white" for="lastname">Enter Genre: </label>
+    <input  style="border-radius: 9px;" type="text" th:field="*{MUSIC_GENRE}" id="lastname"/>
 
+    <br/>
     <br/>
 
 
-    <label for="mail">Enter email: </label>
-    <input type="text" th:field="*{USER_MAIL}" id="mail"/>
+    <label style="color: white" for="mail">Enter Duration: </label>
+    <input style="border-radius: 9px;" type="text" th:field="*{MUSIC_DURATION}" id="mail"/>
 
     <br/>
-
-    <label for="location">Enter location: </label>
-    <input type="text" th:field="*{USER_LOCATION}" id="location"/>
-
     <br/>
 
-    <input type="submit" value="Create!"/>
+    <label style="color: white" for="location">Enter Artist: </label>
+    <input style="border-radius: 9px;" type="text" th:field="*{MUSIC_ARTIST}" id="location"/>
+
+    <br/>
+    <br/>
+
+    <input style="box-shadow:inset 0px 34px 0px -15px #1c1c1c;
+	background:linear-gradient(to bottom, #423f3f 5%, #080100 100%);
+	background-color:#423f3f;
+	border:1px solid #241d13;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:9px 23px;
+	text-decoration:none;
+	text-shadow:0px -1px 0px #7a2a1d; " type="submit" value="Create!"/>
 </form>
 
 </body>

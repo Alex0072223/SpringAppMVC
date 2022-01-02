@@ -54,11 +54,10 @@ public class dbDAO {
     }
 
     public List<Const> index(){
-      //  return jdbcTemplate.query("SELECT * FROM users", new BeanPropertyRowMapper<>(Const.class));
 
        List<Const> people = new ArrayList<>();
         try {
-            String query = "SELECT * FROM users";
+            String query = "SELECT * FROM music";
             statement = dbhan.getConnection().createStatement();
             ResultSet resultSet = statement.executeQuery(query);
 
@@ -66,20 +65,20 @@ public class dbDAO {
             while (resultSet.next()) {
                 Const consta = new Const();
 
-                int id = resultSet.getInt("idusers");
-                consta.setUSERS_ID(id);
+                int id = resultSet.getInt("idmusic");
+                consta.setMUSIC_ID(id);
 
-                String name = resultSet.getString("FirstName");
-                consta.setUSER_FIRSTNAME(name);
+                String name = resultSet.getString("TrackName");
+                consta.setMUSIC_TRACKNAME(name);
 
-                String lastname = resultSet.getString("LastName");
-                consta.setUSER_LASTNAME(lastname);
+                String lastname = resultSet.getString("Genre");
+                consta.setMUSIC_GENRE(lastname);
 
-                String mail = resultSet.getString("UserMail");
-                consta.setUSER_MAIL(mail);
+                String mail = resultSet.getString("Duration");
+                consta.setMUSIC_DURATION(mail);
 
-                String location = resultSet.getString("Location");
-                consta.setUSER_LOCATION(location);
+                String location = resultSet.getString("Artist");
+                consta.setMUSIC_ARTIST(location);
 
                 people.add(consta);
 
@@ -91,7 +90,7 @@ public class dbDAO {
                 }
                 // System.out.println(peoples);
 
-                System.out.println("id: " + id + "| Name: " + name + "| Last Name: " + lastname + "| email: " + mail + "| Location: " + location);
+                System.out.println("id: " + id + "| Track: " + name + "| Genre: " + lastname + "| Duration : " + mail + "| Artist: " + location);
 
             }
 
@@ -106,7 +105,7 @@ public class dbDAO {
     }
 
     public void save(Const person){
-       jdbcTemplate.update("INSERT INTO users VALUES (idusers,?, ?, ?, ?)", person.getUSER_FIRSTNAME(),person.getUSER_LASTNAME(),person.getUSER_MAIL(),person.getUSER_LOCATION());
+       jdbcTemplate.update("INSERT INTO music VALUES (idmusic,?, ?, ?, ?)", person.getMUSIC_TRACKNAME(),person.getMUSIC_GENRE(),person.getMUSIC_DURATION(),person.getMUSIC_ARTIST());
        /* try {
             PreparedStatement preparedStatement = dbhan.getConnection().prepareStatement("INSERT INTO users VALUES (1,?,?,?,?)");
 
@@ -128,18 +127,18 @@ public class dbDAO {
            //     .stream().findAny().orElse(null);
         Const person = null;
         try {
-            PreparedStatement preparedStatement = dbhan.getConnection().prepareStatement("SELECT * FROM users WHERE idusers = ?");
+            PreparedStatement preparedStatement = dbhan.getConnection().prepareStatement("SELECT * FROM music WHERE idmusic = ?");
             preparedStatement.setInt(1, id);
 
             ResultSet resultSet = preparedStatement.executeQuery();
             resultSet.next();
 
             person = new Const();
-            person.setUSERS_ID(resultSet.getInt("idusers"));
-            person.setUSER_FIRSTNAME(resultSet.getString("FirstName"));
-            person.setUSER_LASTNAME(resultSet.getString("LastName"));
-            person.setUSER_MAIL(resultSet.getString("UserMail"));
-            person.setUSER_LOCATION(resultSet.getString("Location"));
+            person.setMUSIC_ID(resultSet.getInt("idmusic"));
+            person.setMUSIC_TRACKNAME(resultSet.getString("TrackName"));
+            person.setMUSIC_GENRE(resultSet.getString("Genre"));
+            person.setMUSIC_DURATION(resultSet.getString("Duration"));
+            person.setMUSIC_ARTIST(resultSet.getString("Artist"));
 
         } catch (SQLException | ClassNotFoundException throwables){
             throwables.printStackTrace();
@@ -152,13 +151,13 @@ public class dbDAO {
        // jdbcTemplate.update("UPDATE users SET FirstName=?, LastName=?, UserMail=?,Location=? WHERE idusers=?", updatePerson.getUSER_FIRSTNAME(),updatePerson.getUSER_LASTNAME(),updatePerson.getUSER_MAIL(),updatePerson.getUSER_LOCATION(), id);
         try {
             PreparedStatement preparedStatement =
-                    dbhan.getConnection().prepareStatement("UPDATE users SET FirstName=?, LastName=?,UserMail=?,Location=? WHERE idusers=?");
+                    dbhan.getConnection().prepareStatement("UPDATE music SET TrackName=?, Genre=?,Duration=?,Artist=? WHERE idmusic=?");
 
 
-            preparedStatement.setString(1, updatePerson.getUSER_FIRSTNAME());
-            preparedStatement.setString(2, updatePerson.getUSER_LASTNAME());
-            preparedStatement.setString(3, updatePerson.getUSER_MAIL());
-            preparedStatement.setString(4, updatePerson.getUSER_LOCATION());
+            preparedStatement.setString(1, updatePerson.getMUSIC_TRACKNAME());
+            preparedStatement.setString(2, updatePerson.getMUSIC_GENRE());
+            preparedStatement.setString(3, updatePerson.getMUSIC_DURATION());
+            preparedStatement.setString(4, updatePerson.getMUSIC_ARTIST());
 
             preparedStatement.setInt(5,id);
 
@@ -179,7 +178,7 @@ public class dbDAO {
         PreparedStatement preparedStatement = null;
 
         try {
-             preparedStatement = dbhan.getConnection().prepareStatement("DELETE FROM users WHERE idusers=?");
+             preparedStatement = dbhan.getConnection().prepareStatement("DELETE FROM music WHERE idmusic=?");
              preparedStatement.setInt(1,id);
              preparedStatement.executeUpdate();
         } catch (SQLException | ClassNotFoundException e) {

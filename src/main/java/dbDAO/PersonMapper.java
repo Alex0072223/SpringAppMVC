@@ -12,11 +12,11 @@ public class PersonMapper implements RowMapper<Const> {
     public Const mapRow(ResultSet resultSet, int rowNum) throws SQLException {
         Const person = new Const();
 
-        person.setUSERS_ID(resultSet.getInt("idusers"));
-        person.setUSER_FIRSTNAME(resultSet.getString("FirstName"));
-        person.setUSER_LASTNAME(resultSet.getString("LastName"));
-        person.setUSER_MAIL(resultSet.getString("UserMail"));
-        person.setUSER_LOCATION(resultSet.getString("Location"));
+        person.setMUSIC_ID(resultSet.getInt("idmusic"));
+        person.setMUSIC_TRACKNAME(resultSet.getString("TrackName"));
+        person.setMUSIC_GENRE(resultSet.getString("Genre"));
+        person.setMUSIC_DURATION(resultSet.getString("Duration"));
+        person.setMUSIC_ARTIST(resultSet.getString("Artist"));
 
         return person;
 

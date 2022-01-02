@@ -6,18 +6,18 @@
 </head>
 <body>
 
-<form th:method="PATCH" th:action="@{/databaseDirectory/{id}(id=${person.getUSERS_ID()})}" th:object="${person}">
-    <label for="name">Enter name: </label>
-    <input type="text" th:field="*{USER_FIRSTNAME}" id="name"/>
+<form th:method="PATCH" th:action="@{/databaseDirectory/{id}(id=${person.getMUSIC_ID()})}" th:object="${person}">
+    <label for="name">Enter name of Track: </label>
+    <input type="text" th:field="*{MUSIC_TRACKNAME}" id="name"/>
     <br/>
-    <label for="lastname">Enter Lastname: </label>
-    <input type="text" th:field="*{USER_LASTNAME}" id="lastname"/>
+    <label for="lastname">Enter Genre: </label>
+    <input type="text" th:field="*{MUSIC_GENRE}" id="lastname"/>
     <br/>
-    <label for="mail">Enter mail: </label>
-    <input type="text" th:field="*{USER_MAIL}" id="mail"/>
+    <label for="mail">Enter Duration: </label>
+    <input type="text" th:field="*{MUSIC_DURATION}" id="mail"/>
     <br/>
-    <label for="location">Enter Location: </label>
-    <input type="text" th:field="*{USER_LOCATION}" id="location"/>
+    <label for="location">Enter Artist: </label>
+    <input type="text" th:field="*{MUSIC_ARTIST}" id="location"/>
     <br/>
     <input type="submit" value="Update!"/>
 </form>
